@@ -3,8 +3,8 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-root',
   template: `
-    <button (click)="load()">load</button>
-    <button (click)="unload()">unload</button>
+    <button [disabled]='url' (click)="load()">load</button>
+    <button [disabled]='!url' (click)="unload()">unload</button>
     <img *ngIf="url" [src]="url" alt="">
 
   `,
