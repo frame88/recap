@@ -3,29 +3,17 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-root',
   template: `
-    <button [disabled]='url' (click)="load()">load</button>
-    <button [disabled]='!url' (click)="unload()">unload</button>
-    <img *ngIf="url" [src]="url" alt="">
-     <app-hello></app-hello>
-     <app-hello></app-hello>
-     <app-hello></app-hello>
+    <h1>{{today}}</h1>
+    <h1>{{today | date: 'dd MMMM YYYY'}}</h1>
+    <h1>{{yourmoney | currency}}</h1>
+    <h1>{{yourbitcoins | number: '2.2-4'}}</h1>
+    <pre>{{yourJSON | json}}</pre>
   `,
+  styles: []
 })
-
 export class AppComponent {
-  title = 'recap';
-
-  url : string;
-
-  load() {
-    this.url = 'https://www.collinsdictionary.com/images/full/computer_49399603.jpg';
-  }
-
-  unload() {
-    this.url = null;
-  }
-  
+  today = Date.now();
+  yourmoney = 1200;
+  yourbitcoins = 0.12343242;
+  yourJSON = { id: 1, name: 'Fabio' };
 }
-
-// styles: [` h1{ background-color: red;} `]
-
