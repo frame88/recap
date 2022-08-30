@@ -5,6 +5,12 @@ import { Component } from '@angular/core';
   template: `
     <button (click)="toggle()">Clicca</button>
     <h1 *ngIf="visible">Hello world</h1>
+
+    <li 
+      [hidden] = !visible
+      *ngFor="let user of users">
+      {{user}}
+    </li>
   `,
 })
 
@@ -16,6 +22,8 @@ export class AppComponent {
   toggle() {
     this.visible = !this.visible;
   }
+
+  users = ['mario','gianni','piero'];
 
 }
 
