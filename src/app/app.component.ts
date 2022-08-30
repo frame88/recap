@@ -1,19 +1,15 @@
 import { Component } from '@angular/core';
-import { User } from './model/user';
+import { Utility } from './services/utility';
 
 @Component({
   selector: 'app-root',
   template: `
-    <li *ngFor="let user of users">
-      {{user.name}}
-    </li>
-  `,
-  styles: []
+    <h1>Hello World</h1>
+  `
 })
 export class AppComponent {
-  users: User[] = [
-    { id: 1, name: 'Fabio' },
-    { id: 2, name: 'Simone' },
-    { id: 3, name: 'Lorenzo' },
-  ];
+  constructor(utils: Utility) {
+    const response = utils.add(1, 4)
+    console.log(response);
+  }
 }
