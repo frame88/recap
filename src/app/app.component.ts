@@ -1,19 +1,19 @@
 import { Component } from '@angular/core';
+import { User } from './model/user';
 
 @Component({
   selector: 'app-root',
   template: `
-    <h1>{{today}}</h1>
-    <h1>{{today | date: 'dd MMMM YYYY'}}</h1>
-    <h1>{{yourmoney | currency}}</h1>
-    <h1>{{yourbitcoins | number: '2.2-4'}}</h1>
-    <pre>{{yourJSON | json}}</pre>
+    <li *ngFor="let user of users">
+      {{user.name}}
+    </li>
   `,
   styles: []
 })
 export class AppComponent {
-  today = Date.now();
-  yourmoney = 1200;
-  yourbitcoins = 0.12343242;
-  yourJSON = { id: 1, name: 'Fabio' };
+  users: User[] = [
+    { id: 1, name: 'Fabio' },
+    { id: 2, name: 'Simone' },
+    { id: 3, name: 'Lorenzo' },
+  ];
 }
