@@ -6,7 +6,9 @@ import { Component } from '@angular/core';
     <button [disabled]='url' (click)="load()">load</button>
     <button [disabled]='!url' (click)="unload()">unload</button>
     <img *ngIf="url" [src]="url" alt="">
-
+     <app-hello></app-hello>
+     <app-hello></app-hello>
+     <app-hello></app-hello>
   `,
 })
 
